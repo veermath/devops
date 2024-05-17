@@ -12,7 +12,7 @@ pipeline {
                  script{
                         dir("terraform")
                         {
-                            git branch: 'terraform', url: 'git@github.com:veermath/devops.git'
+                            git branch: 'terraform', url: 'https://github.com/veermath/devops.git'
                         }
                     }
                 }
