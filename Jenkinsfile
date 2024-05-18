@@ -15,28 +15,28 @@ pipeline {
             }
         stage('Terraform Init') {
            steps {
-                scripts {
+                script {
                         sh 'terraform init'
                 }
            }
         }
         stage('Terraform validate') {
            steps {
-                scripts {
+                script {
                         sh 'terraform validate'
                 }
            }
         }
         stage('Terraform Plan') {
            steps {
-                scripts {
+                script {
                     sh 'terraform plan =out=tfplan'
                 }
            }
         }
         stage('Terraform Apply') {
            steps {
-                scripts {
+                script {
                     sh 'terraform apply -auto-approve tfplan'
                 }
            }
