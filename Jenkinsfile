@@ -16,9 +16,14 @@ pipeline {
         stage('Terraform Init') {
            steps {
                 scripts {
-                    dir("terraform") {
                         sh 'terraform init'
-                    }
+                }
+           }
+        }
+        stage('Terraform validate') {
+           steps {
+                scripts {
+                        sh 'terraform validate'
                 }
            }
         }
