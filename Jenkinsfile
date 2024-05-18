@@ -11,6 +11,7 @@ pipeline {
             steps {
                     echo 'clone the repo'
                     sh 'git clone https://github.com/veermath/devops.git'
+                    sh 'git checkout terraform'
                 }
             }
         stage('Terraform Init') {
