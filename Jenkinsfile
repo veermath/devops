@@ -10,8 +10,7 @@ pipeline {
         stage('checkout') {
             steps {
                     echo 'clone the repo'
-                    sh 'git clone https://github.com/veermath/devops.git'
-                    sh 'git checkout terraform'
+                    git branch: 'terraform', changelog: false, poll: false, url: 'https://github.com/veermath/devops.git'
                 }
             }
         stage('Terraform Init') {
