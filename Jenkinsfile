@@ -10,7 +10,7 @@ pipeline {
         stage('checkout') {
             steps {
                  script{
-                            git branch: 'terraform', url: 'https://github.com/veermath/devops.git
+                            git branch: 'terraform', url: 'https://github.com/veermath/devops.git'
                     }
                 }
             }
