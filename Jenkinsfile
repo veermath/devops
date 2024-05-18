@@ -5,10 +5,9 @@ pipeline {
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
     }
 
-   agent  none
+   agent  any
     stages {
         stage('Terraform Init') {
-            agent {label 'agent'}
            steps {
                 script {
                         sh 'terraform init'
@@ -16,7 +15,6 @@ pipeline {
            }
         }
         stage('Terraform validate') {
-            agent {label 'agent'}
            steps {
                 script {
                         sh 'terraform validate'
@@ -24,7 +22,6 @@ pipeline {
            }
         }
         stage('Terraform Plan') {
-            agent {label 'agent'}
            steps {
                 script {
                     sh 'terraform plan =out=tfplan'
@@ -32,10 +29,16 @@ pipeline {
            }
         }
         stage('Terraform Apply') {
-            agent {label 'agent'}
            steps {
                 script {
                     sh 'terraform apply -auto-approve tfplan'
+                }
+           }
+        }
+        stage('Terraform destroy') {
+           steps {
+                script {
+                    sh 'terraform destroy'
                 }
            }
         }
